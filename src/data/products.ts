@@ -709,9 +709,12 @@ export const ratingDistribution = (product: Product) => {
     0.04,
   ];
   const sum = weights.reduce((a, b) => a + b, 0);
-  return [5, 4, 3, 2, 1].map((stars, i) => ({
-    stars,
-    percent: Math.round((weights[i] / sum) * 100),
-    count: Math.round((weights[i] / sum) * product.reviewCount),
-  }));
+  return [5, 4, 3, 2, 1].map((stars, i) => {
+    const w = weights[i] ?? 0;
+    return {
+      stars,
+      percent: Math.round((w / sum) * 100),
+      count: Math.round((w / sum) * product.reviewCount),
+    };
+  });
 };
