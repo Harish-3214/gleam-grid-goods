@@ -6,15 +6,15 @@ export type CartLine = {
   key: string;
   productId: string;
   quantity: number;
-  color?: string;
-  size?: string;
+  color?: string | undefined;
+  size?: string | undefined;
 };
 
 type ShopState = {
   cart: CartLine[];
   wishlist: string[];
   hydrated: boolean;
-  addToCart: (product: Product, options?: { quantity?: number; color?: string; size?: string; silent?: boolean }) => void;
+  addToCart: (product: Product, options?: { quantity?: number; color?: string | undefined; size?: string | undefined; silent?: boolean }) => void;
   setQuantity: (key: string, quantity: number) => void;
   removeFromCart: (key: string) => void;
   clearCart: () => void;

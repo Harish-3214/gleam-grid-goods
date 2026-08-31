@@ -13,8 +13,8 @@ export function AddToCartButton({
 }: {
   product: Product;
   quantity?: number;
-  color?: string;
-  size?: string;
+  color?: string | undefined;
+  size?: string | undefined;
   className?: string;
   children?: React.ReactNode;
 }) {
